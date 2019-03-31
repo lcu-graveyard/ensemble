@@ -1,0 +1,21 @@
+<div class="spots" fxLayout="row" [gdColumns]="ActiveSpot ? '3' : '2'" gdAlignRows="stretch center" gdAlignColumns="stretch center">
+  <ng-container *ngFor="let spot of Spots; let i = $index">
+    <div [gdColumn]="GetCol(spot.Lookup)" [gdRow]="GetRow(spot.Lookup)" [class]="spot.Lookup" (click)="SetActiveSpot(spot.Lookup)">
+      <div>
+        <h2>{{ spot.Name }}</h2>
+
+        <div class="spread">
+          <p class="mat-body-2" *ngIf="ActiveSpot == spot.Lookup">{{ spot.Description }}</p>
+
+          <p class="mat-body-1" *ngIf="ActiveSpot != spot.Lookup">{{ spot.Abstract }}</p>
+        </div>
+
+        <a mat-raised-button [color]="ActiveSpot == spot.Lookup ? 'primary' : 'accent'" class="mat-button-lg">
+          <span *ngIf="ActiveSpot == spot.Lookup">Close</span>
+
+          <span *ngIf="ActiveSpot != spot.Lookup">More Details</span>
+        </a>
+      </div>
+    </div>
+  </ng-container>
+</div>

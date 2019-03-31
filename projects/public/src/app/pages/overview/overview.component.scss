@@ -1,0 +1,71 @@
+@import '../../../../../common/src/styles/theme';
+
+@mixin org($theme) {
+  $config: mat-typography-config();
+
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  :host {
+    .spots {
+      height: calc(100% - 64px);
+
+      .prototype,
+      .partner,
+      .prepare,
+      .share {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: 50% 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        h2 {
+          width: auto;
+        }
+      }
+
+      .prototype {
+        background-image: linear-gradient(
+            to bottom,
+            transparentize(mat-color($primary, 600), 0.15) 50%,
+            transparentize(mat-color($primary, 600), 0.15) 50%
+          ),
+          url(https://3p0xjcnnd5gkid8z3ks610l1-wpengine.netdna-ssl.com/wp-content/uploads/2017/11/Hero.png);
+      }
+
+      .partner {
+        background-image: linear-gradient(
+            to bottom,
+            transparentize(mat-color($primary, 400), 0.2) 50%,
+            transparentize(mat-color($primary, 400), 0.2) 50%
+          ),
+          url(https://1.cms.s81c.com/sites/default/files/2018-09-25/manufacturing_500x250.jpg);
+      }
+
+      .prepare {
+        background-image: linear-gradient(
+            to bottom,
+            transparentize(mat-color($primary, 400), 0.2) 50%,
+            transparentize(mat-color($primary, 400), 0.2) 50%
+          ),
+          url(https://insight.ieeeusa.org/wp-content/uploads/sites/3/2017/09/iot-sep17-1200-1200x700.jpg);
+      }
+
+      .share {
+        background-image: linear-gradient(
+            to bottom,
+            transparentize(mat-color($primary, 600), 0.15) 50%,
+            transparentize(mat-color($primary, 600), 0.15) 50%
+          ),
+          url(https://www.yellowfinbi.com/assets/files/2017/02/810x430-monetizing-data.jpg);
+      }
+    }
+  }
+}
+
+@include org($nide-theme);
